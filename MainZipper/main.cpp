@@ -27,7 +27,7 @@ int main() {
     cout << "Root value: " << zipper.getValue() << endl;
     zipper.goLeft();
     cout << "Left child value: " << zipper.getValue() << endl;
-    zipper.goLeft();
+    zipper.goRight();
     cout << "Left-Left child value: " << zipper.getValue() << endl;
 
     return 0;
