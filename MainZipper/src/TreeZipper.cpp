@@ -11,21 +11,33 @@ Context::Context(shared_ptr<TreeNode> p, Direction d) : parent(p), dir(d) {}
 TreeZipper::TreeZipper(shared_ptr<TreeNode> root) : focus(root) {}
 
 bool TreeZipper::goLeft() {
-    if (!focus->left) return false;
+    if (!focus->left)
+    {
+        cout<<"The Left Child is Empty"<<endl;
+        return false;
+    }
     context.push(Context(focus, LEFT));
     focus = focus->left;
     return true;
 }
 
 bool TreeZipper::goRight() {
-    if (!focus->right) return false;
+    if (!focus->right)
+    {
+        cout<<"The Right Child is Empty"<<endl;
+        return false;
+    }
     context.push(Context(focus, RIGHT));
     focus = focus->right;
     return true;
 }
 
 bool TreeZipper::goUp() {
-    if (context.empty()) return false;
+    if (context.empty())
+    {
+        cout<<"You're at the root node"<<endl;
+        return false;
+    }
     Context ctx = context.top();
     context.pop();
     focus = ctx.parent;
