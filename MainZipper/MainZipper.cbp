@@ -31,7 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option="-Iinclude" />  <!-- Add this line -->
 		</Compiler>
+		<Unit filename="src/TreeZipper.cpp" />
+		<Unit filename="include/TreeZipper.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
