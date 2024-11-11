@@ -1,4 +1,4 @@
-Certainly! Below is a **GitHub-style README** that you can use for your Code::Blocks project.
+
 
 ---
 
