@@ -24,21 +24,21 @@ struct Context {
 class DirectoryZipper {
 public:
     DirectoryZipper(shared_ptr<DirectoryTree> root);
-    
+
     bool goToChild(string childName);
     bool goUp();
-    
+
     void update(string newValue);
     string getValue() const;
-    
+
     void addChild(string name);
 
     void recursiveDelete(shared_ptr<DirectoryTree> tempFocus);
 
     void removeRecursiveDirectory(string name);
 
-
-private:
+//
+//private:
     shared_ptr<DirectoryTree> focus;
     stack<Context> context;
     vector<string> fullPath;

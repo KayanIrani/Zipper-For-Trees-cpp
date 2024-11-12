@@ -1,7 +1,7 @@
 // DirectoryZipper.cpp
 #include "MyDirectory.h"
 #include <iostream>
-#include <bits/stdc++.h>
+#include <algorithm>
 using namespace std;
 
 DirectoryTree::DirectoryTree(string n) : folderName(n){}
