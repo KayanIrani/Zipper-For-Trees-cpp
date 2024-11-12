@@ -33,9 +33,16 @@ public:
     
     void addChild(string name);
 
+    void recursiveDelete(shared_ptr<DirectoryTree> tempFocus);
+
+    void removeRecursiveDirectory(string name);
+
+
 private:
     shared_ptr<DirectoryTree> focus;
     stack<Context> context;
+    vector<string> fullPath;
+
 };
 
 #endif // MYDIRECTORY_H
