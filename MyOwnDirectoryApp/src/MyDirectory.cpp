@@ -20,7 +20,7 @@ bool DirectoryZipper::goToChild(string childName) {
             context.push(Context(focus, fullPath));
             focus = subDir;
             return true;
-        } 
+        }
     }
     cout << "Child directory not found: " << childName << endl;
     return false;
@@ -77,14 +77,14 @@ void DirectoryZipper::removeRecursiveDirectory(string childName) {
         {
             cout<<"Are you sure you wish to delete " << focus->folderName<<endl;
             cout<<"Press Y[y] to delete" <<endl;
-            cin>>ip;   
+            cin>>ip;
             if (ip == 'Y' || ip == 'y')
             {
                 cout<<"Deleting "<<focus->folderName<< endl;
                 if (!context.empty())
                 {
                     Context ctx = context.top();
-                    context.pop();
+                        context.pop();
                     focus = ctx.parent;
                     fullPath = ctx.path;
                 }
@@ -110,12 +110,12 @@ void DirectoryZipper::removeRecursiveDirectory(string childName) {
                     auto it = remove_if(
                         ctx.parent->subDirectories.begin(),
                         ctx.parent->subDirectories.end(),
-                        [this](const shared_ptr<DirectoryTree>& dir) 
-                        { 
-                            return dir == focus; 
+                        [this](const shared_ptr<DirectoryTree>& dir)
+                        {
+                            return dir == focus;
                         }
                     );
-                    ctx.parent->subDirectories.erase(it, ctx.parent->subDirectories.end()); 
+                    ctx.parent->subDirectories.erase(it, ctx.parent->subDirectories.end());
                     focus = ctx.parent;
                     fullPath = ctx.path;
                 }
@@ -123,7 +123,7 @@ void DirectoryZipper::removeRecursiveDirectory(string childName) {
             else
             {
                 cout<<"Delete Action Stopped ..." <<endl;
-            }   
+            }
         }
     }
     else{
@@ -131,15 +131,15 @@ void DirectoryZipper::removeRecursiveDirectory(string childName) {
             focus->subDirectories.begin(),
             focus->subDirectories.end(),
             [&childName](const shared_ptr<DirectoryTree>& dir)
-            { 
-                return dir->folderName == childName; 
+            {
+                return dir->folderName == childName;
             }
         );
 
-        if (it != focus->subDirectories.end()) 
+        if (it != focus->subDirectories.end())
         {
-            recursiveDelete(*it); 
-            focus->subDirectories.erase(it); 
+            recursiveDelete(*it);
+            focus->subDirectories.erase(it);
             cout << "Deleted directory: " << childName << endl;
         }
         else

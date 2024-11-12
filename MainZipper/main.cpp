@@ -9,7 +9,6 @@ int main() {
     // Create the root node of the tree
     auto root = make_shared<TreeNode>(1);
     TreeZipper zipper(root);
-
     // Add children to the root
     zipper.addLeft(2);
     zipper.addRight(3);

@@ -38,6 +38,14 @@ public:
             cout << "Directory '" << directory << "' not found." << endl;
         }
     }
+void rename(const string& directory)
+{
+    auto [oldName,newName] = parseCommand(directory);
+    ZipDirector.goToChild(oldName);
+    ZipDirector.update(newName);
+    ZipDirector.goUp(); 
+}
+
 
 void mkdir(const string& directory) {
     if (!directory.empty()) {
@@ -49,12 +57,7 @@ void mkdir(const string& directory) {
 }
 
 void rmdir(const string& directory) {
-    if (!directory.empty()) {
         ZipDirector.removeRecursiveDirectory(directory);
-        cout << "Directory '" << directory << "' removed." << endl;
-    } else {
-        cout << "Error: No directory name provided for rmdir." << endl;
-    }
 }
 
 void ls() {
@@ -98,6 +101,8 @@ void understandPrompt(const string& prompt) {
         ls();
     } else if (command == "dir") {
         dir();
+    } else if (command == "rename") {
+        rename(argument);
     } else {
         cout << "Command not recognized: " << command << endl;
     }
